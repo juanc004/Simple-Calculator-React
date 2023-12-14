@@ -14,7 +14,7 @@ Simple Calculator is a sleek and user-friendly React-based web application desig
 To set up the Simple Calculator on your local machine, follow these steps:
 
 ```bash
-git clone https://github.com/yourusername/simple-calculator-react.git
+git clone https://github.com/juanc004/simple-calculator-react.git
 cd simple-calculator-react
 npm install
 ```
