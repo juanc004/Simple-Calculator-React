@@ -1,0 +1,187 @@
+* {
+  box-sizing: border-box; /* Improved box-sizing */
+  font-family: 'Arial', sans-serif;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.App {
+  display: flex; /* Use flexbox to center children */
+  flex-direction: column; /* Stack children vertically */
+  justify-content: center; /* Center children vertically */
+  align-items: center; /* Center children horizontally */
+  min-height: 100vh; /* At least the full height of the viewport */
+  padding: 20px;
+  margin: auto; /* Center the app container */
+  border-radius: 10px; /* Rounded corners for the app container */
+}
+
+h1 {
+  color: #0a0a42;
+  text-align: center;
+  margin-bottom: 1rem; /* Spacing below the title */
+}
+
+.result {
+  font-size: 3rem; 
+  text-align: center;
+  margin: 20px 0;
+  padding: 10px;
+  background: #0a0a42; /* Transparent background for result */
+  color: #fff; /* White text color */
+  border: 1px solid #fff; /* White border for contrast */
+  border-radius: 5px;
+}
+
+input {
+  width: 100%; /* Full-width input */
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc; /* Lighter border for input */
+  background: #0a0a42; /* Darker input field */
+  color: #fff; /* White input text */
+  border-radius: 5px;
+}
+
+.buttons {
+  display: grid; /* Grid layout for buttons */
+  grid-template-columns: repeat(2, 1fr); /* Two columns of buttons */
+  gap: 10px; /* Space between buttons */
+}
+
+@keyframes fireAnimation {
+  0% { box-shadow: 0 0 10px 2px rgba(255, 100, 0, 0.7); }
+  50% { box-shadow: 0 0 15px 4px rgba(255, 150, 0, 0.8); }
+  100% { box-shadow: 0 0 10px 2px rgba(255, 100, 0, 0.7); }
+}
+
+button {
+  font-size: 1rem;
+  padding: 10px;
+  border: none; /* No border */
+  background: #0a0a42; /* Dark button backgrounds */
+  color: #fff; /* White button text */
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s; /* Smooth transition for button background and slight transform */
+  position: relative;
+  overflow: hidden;
+}
+
+button:active::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255, 200, 0, 0.6) 40%, transparent 70%);
+  animation: fireAnimation 0.5s ease-out;
+}
+
+button:nth-last-child(1) {
+  grid-column: span 2; /* Make the reset button span two columns */
+  background: #0a0a42; /* Magenta for reset button */
+  color: white;
+}
+
+.history {
+  width: 80%;
+  margin-top: 20px;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+}
+
+.history h2 {
+  color: #0a0a42;
+}
+
+.history ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.history li {
+  margin-bottom: 5px;
+  background: #e8e8e8;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+/* Mobile phones (small screens, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .App {
+    margin: 20px auto;
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.5rem; /* Smaller font size for mobile */
+  }
+
+  .result {
+    font-size: 2rem;
+  }
+
+  input, button {
+    font-size: 1rem; /* Smaller font size for easier interaction on mobile */
+    padding: 8px;
+  }
+
+  .buttons {
+    grid-template-columns: 1fr; /* Stack buttons vertically on small screens */
+  }
+}
+
+
+/* Tablets (medium screens, 600px to 768px) */
+@media only screen and (min-width: 601px) and (max-width: 768px) {
+  .App {
+    margin: 30px auto;
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 2rem; /* Slightly larger font size for tablets */
+  }
+
+  .result {
+    font-size: 2.5rem;
+  }
+
+  input, button {
+    font-size: 1.2rem; /* Larger font size for tablets */
+    padding: 10px;
+  }
+}
+
+
+/* Laptops (large screens, 769px and up) */
+@media only screen and (min-width: 769px) {
+  .App {
+    max-width: 500px; /* Set a max-width for larger screens */
+  }
+
+  h1 {
+    font-size: 2.5rem; /* Larger font size for laptops */
+  }
+
+  .result {
+    font-size: 3rem;
+  }
+
+  input, button {
+    font-size: 1.5rem; /* Larger font size for laptops */
+    padding: 12px;
+  }
+
+  .buttons {
+    grid-template-columns: repeat(2, 1fr); /* Return to side-by-side buttons on large screens */
+  }
+}
